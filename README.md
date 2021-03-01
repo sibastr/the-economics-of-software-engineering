@@ -1,2 +1,2 @@
-# Programm engenery economy
+# The economics of software engineering
  Bauman course
