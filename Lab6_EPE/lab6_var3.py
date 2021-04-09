@@ -222,11 +222,84 @@ def Impact_Graph(dict_RELY,dict_CPLX,dict_Data):
 
     plt.show()
 
-d_Rely = RelyImpact(15000/1000)
-d_Data = DataImpact(15000/1000)
-d_CPLX = CPLXImpact(15000/1000)
+def project_tradion():
+    eaf_levels = get_default_eaf_levels()
+    eaf_levels['RELY'] = 4
+    eaf_levels['TIME'] = 4
+    eaf_levels['SCED'] = 4
+    eaf_levels['PCAP'] = 4
+    eaf_levels['ACAP'] = 4
+    eaf_levels['CPLX'] = 4
+    result_Air = cocomo(430000 / 1000, eaf_levels, inter_mode)
 
-Impact_Graph(d_Rely,d_CPLX,d_Data)
+    work_plan_requirements = result_Air[0] * 0.08
+    time_plan_requirements = result_Air[1] * 0.36
+
+    work_design_project = result_Air[0] * 0.18
+    time_design_project = result_Air[1] * 0.36
+
+    work_details_design = result_Air[0] * 0.25
+    time_details_design = result_Air[1] * 0.18
+
+    work_code_test = result_Air[0] * 0.26
+    time_code_test = result_Air[1] * 0.18
+
+    work_integration_test = result_Air[0] * 0.31
+    time_integration_test = result_Air[1] * 0.28
+
+    print("Трудозатраты в месяцах для проекта:", result_Air[0])
+    print("Время проекта в месяцах для проекта:", result_Air[1])
+
+    print("Работа на планирование и определение требований:", work_plan_requirements)
+    print("Время на планирование и определение требований:", time_plan_requirements)
+    print("Работа по проектироваю проекта:", work_design_project)
+    print("Время на проектирование проекта:", time_design_project)
+    print("Работа по детальному проектированию:", work_details_design)
+    print("Время на детальное проектирование:", time_details_design)
+    print("Работа по кодированию и тестированию отдельных модулей:", work_code_test)
+    print("Время на кодирование и тестирование отдельных модулей:", time_code_test)
+    print("Работа на интеграцию и тестирование:", work_integration_test)
+    print("Время на интеграцию и тестирование:", time_integration_test)
+
+    print("Итоговая работа:", result_Air[0] + work_plan_requirements)
+    print("Итоговое время:", result_Air[1] + time_plan_requirements)
+    print("\n------------------------------------------------------------------------------\n")
+    result_Air[0] += work_plan_requirements
+    result_Air[1] += time_plan_requirements
+    analysis = result_Air[0] * 0.04
+    design_product = result_Air[0] * 0.12
+    programming = result_Air[0] * 0.44
+    testing = result_Air[0] * 0.06
+    verification = result_Air[0] * 0.14
+    office = result_Air[0] * 0.07
+    quality_assurance = result_Air[0] * 0.07
+    manuals = result_Air[0] * 0.06
+    summary_work = sum([analysis, design_product, programming, testing,
+                        verification, office, quality_assurance, manuals])
+
+    print("Анализ требований", analysis)
+    print("Проектирование продукта", design_product)
+    print("Программирование", programming)
+    print("Тестирование", testing)
+    print("Верификация и аттестация", verification)
+    print("Канцелярия проекта", office)
+    print("Управление конфигурацией и обеспечение качества", quality_assurance)
+    print("Создание руководств", manuals)
+
+
+    print("Итоговые человеко-месяцы", summary_work)
+
+
+
+if __name__ == '__main__':
+    d_Rely = RelyImpact(15000/1000)
+    d_Data = DataImpact(15000/1000)
+    d_CPLX = CPLXImpact(15000/1000)
+
+    #Impact_Graph(d_Rely,d_CPLX,d_Data)
+    project_tradion()
+
+
 
 
 
