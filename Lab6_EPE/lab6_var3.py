@@ -1,4 +1,6 @@
 import matplotlib.pyplot as plt
+import numpy as np
+import math
 eaf_table = {
     'RELY': [0.75, 0.86, 1.0, 1.15, 1.4],
     'DATA': [None, 0.94, 1.0, 1.08, 1.16],
@@ -231,21 +233,37 @@ def project_tradion():
     eaf_levels['ACAP'] = 4
     eaf_levels['CPLX'] = 4
     result_Air = cocomo(430000 / 1000, eaf_levels, inter_mode)
+    amount_of_workers = []
 
     work_plan_requirements = result_Air[0] * 0.08
     time_plan_requirements = result_Air[1] * 0.36
 
+    amount_of_workers += [math.ceil(work_plan_requirements/time_plan_requirements)]*round(time_plan_requirements)
+    #print(amount_of_workers)
+
     work_design_project = result_Air[0] * 0.18
     time_design_project = result_Air[1] * 0.36
+
+    amount_of_workers += [math.ceil(work_design_project / time_design_project)] * round(
+        time_design_project)
 
     work_details_design = result_Air[0] * 0.25
     time_details_design = result_Air[1] * 0.18
 
+    amount_of_workers += [math.ceil(work_details_design / time_details_design)] * round(
+        time_details_design)
+
     work_code_test = result_Air[0] * 0.26
     time_code_test = result_Air[1] * 0.18
 
+    amount_of_workers += [math.ceil(work_code_test / time_code_test)] * round(
+        time_code_test)
+
     work_integration_test = result_Air[0] * 0.31
     time_integration_test = result_Air[1] * 0.28
+
+    amount_of_workers += [math.ceil(work_integration_test / time_integration_test)] * round(
+        time_integration_test)
 
     print("Трудозатраты в месяцах для проекта:", result_Air[0])
     print("Время проекта в месяцах для проекта:", result_Air[1])
@@ -288,7 +306,34 @@ def project_tradion():
 
 
     print("Итоговые человеко-месяцы", summary_work)
+    #print(amount_of_workers)
+    #print(len(amount_of_workers))
+    #print(amount_of_workers.count(44))
+    #print(amount_of_workers.count(122))
+    #print(amount_of_workers.count(127))
+    #print(amount_of_workers.count(97))
+    x = np.arange(1, len(amount_of_workers)+1)
+    y = amount_of_workers
 
+    fig, ax = plt.subplots()
+
+    ax.bar(x, y)
+
+    #ax.set_facecolor('seashell')
+    #fig.set_facecolor('floralwhite')
+    plt.xlabel('Месяцы')
+
+    plt.text(8, 21, 20)
+    plt.text(24, 45, 44)
+    plt.text(36, 123, 122)
+    plt.text(44, 128, 127)
+    plt.text(54, 98, 97)
+
+    fig.set_figwidth(12)  # ширина Figure
+    fig.set_figheight(6)  # высота Figure
+    plt.ylabel('Количество сотрудников')
+
+    plt.show()
 
 
 if __name__ == '__main__':
