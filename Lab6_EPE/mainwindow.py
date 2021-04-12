@@ -24,13 +24,13 @@ class Ui_MainWindow(object):
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.pushButton_calculate = QtWidgets.QPushButton(self.centralWidget)
-        self.pushButton_calculate.setGeometry(QtCore.QRect(900, 230, 211, 111))
+        self.pushButton_calculate.setGeometry(QtCore.QRect(860, 250, 191, 161))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.pushButton_calculate.setFont(font)
         self.pushButton_calculate.setObjectName("pushButton_calculate")
         self.pushButton_graph = QtWidgets.QPushButton(self.centralWidget)
-        self.pushButton_graph.setGeometry(QtCore.QRect(900, 90, 211, 111))
+        self.pushButton_graph.setGeometry(QtCore.QRect(860, 80, 191, 161))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.pushButton_graph.setFont(font)
@@ -338,6 +338,24 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setItem(6, 0, item)
+        self.budget = QtWidgets.QTextEdit(self.centralWidget)
+        self.budget.setGeometry(QtCore.QRect(1040, 800, 181, 51))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.budget.setFont(font)
+        self.budget.setObjectName("budget")
+        self.label_24 = QtWidgets.QLabel(self.centralWidget)
+        self.label_24.setGeometry(QtCore.QRect(1100, 740, 71, 61))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_24.setFont(font)
+        self.label_24.setObjectName("label_24")
+        self.label = QtWidgets.QLabel(self.centralWidget)
+        self.label.setGeometry(QtCore.QRect(1230, 805, 55, 31))
+        font = QtGui.QFont()
+        font.setPointSize(22)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
         MainWindow.setCentralWidget(self.centralWidget)
 
         self.retranslateUi(MainWindow)
@@ -374,10 +392,30 @@ class Ui_MainWindow(object):
         self.label_8.setText(_translate("MainWindow", "Атрибуты компьютера"))
         self.label_10.setText(_translate("MainWindow", "Атрибуты персонала"))
         self.label_15.setText(_translate("MainWindow", "Атрибуты проекта"))
+        self.work.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0</p></body></html>"))
         self.label_16.setText(_translate("MainWindow", "Трудозатраты без планирования"))
         self.label_17.setText(_translate("MainWindow", "Трудозатраты с планированием"))
+        self.work_plan.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0</p></body></html>"))
         self.label_18.setText(_translate("MainWindow", "Время без планирования"))
         self.label_21.setText(_translate("MainWindow", "Время с планированием"))
+        self.time_plan.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0</p></body></html>"))
+        self.time.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0</p></body></html>"))
         self.normal.setText(_translate("MainWindow", "Обычный"))
         self.inter.setText(_translate("MainWindow", "Промежуточный"))
         self.inbuilt.setText(_translate("MainWindow", "Встроенный"))
@@ -416,3 +454,10 @@ class Ui_MainWindow(object):
         __sortingEnabled = self.tableWidget.isSortingEnabled()
         self.tableWidget.setSortingEnabled(False)
         self.tableWidget.setSortingEnabled(__sortingEnabled)
+        self.budget.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:16pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0</p></body></html>"))
+        self.label_24.setText(_translate("MainWindow", "Бюджет"))
+        self.label.setText(_translate("MainWindow", "₽"))

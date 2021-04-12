@@ -43,6 +43,15 @@ def get_default_eaf_levels():
         'SCED': 2
     }
     return eaf_levels
+''
+def get_salary():
+    salaries = {
+        "Programmer": 50000,
+        "Analytic" : 70000,
+        "Manager" : 60000,
+        "Tester" : 45000
+    }
+    return salaries
 #Трудозатраты
 def labor_costs(c1: float, eaf: float, size: float, p1: float) -> float:
     #print('c1',c1,' eaf',eaf,' size',size,' p1',p1)
@@ -279,9 +288,12 @@ def project_tradion(eaf,kloc,mode,self):
 
     result_Air = cocomo(kloc, eaf_levels,mode)
     amount_of_workers = []
+    workers_by_time = []
 
     work_plan_requirements = result_Air[0] * 0.08
     time_plan_requirements = result_Air[1] * 0.36
+
+    workers_by_time += [math.ceil(work_plan_requirements/time_plan_requirements)]
 
     amount_of_workers += [math.ceil(work_plan_requirements/time_plan_requirements)]*round(time_plan_requirements)
     #print(amount_of_workers)
@@ -289,24 +301,29 @@ def project_tradion(eaf,kloc,mode,self):
     work_design_project = result_Air[0] * 0.18
     time_design_project = result_Air[1] * 0.36
 
+    workers_by_time += [math.ceil(work_design_project / time_design_project)]
+
     amount_of_workers += [math.ceil(work_design_project / time_design_project)] * round(
         time_design_project)
 
     work_details_design = result_Air[0] * 0.25
     time_details_design = result_Air[1] * 0.18
 
+    workers_by_time += [math.ceil(work_details_design / time_details_design)]
     amount_of_workers += [math.ceil(work_details_design / time_details_design)] * round(
         time_details_design)
 
     work_code_test = result_Air[0] * 0.26
     time_code_test = result_Air[1] * 0.18
 
+    workers_by_time += [math.ceil(work_code_test / time_code_test)]
     amount_of_workers += [math.ceil(work_code_test / time_code_test)] * round(
         time_code_test)
 
     work_integration_test = result_Air[0] * 0.31
     time_integration_test = result_Air[1] * 0.28
 
+    workers_by_time += [math.ceil(work_integration_test / time_integration_test)]
     amount_of_workers += [math.ceil(work_integration_test / time_integration_test)] * round(
         time_integration_test)
 
@@ -438,8 +455,8 @@ def project_tradion(eaf,kloc,mode,self):
 
     #amount_of_workers += [math.ceil(work_integration_test / time_integration_test)] * round(
     #   time_integration_test)
-    print(amount_of_workers)
-    print(len(amount_of_workers))
+    #print(amount_of_workers)
+    #print(len(amount_of_workers))
     #print(amount_of_workers.count(10))
     #print(amount_of_workers.count(22))
     #print(amount_of_workers.count(60))
@@ -450,7 +467,7 @@ def project_tradion(eaf,kloc,mode,self):
     for i in range(len(amount_of_workers)):
         if amount_of_workers[i] not in dif_workers:
             dif_workers.append(amount_of_workers[i])
-    print(dif_workers)
+    #print(dif_workers)
     x = np.arange(1, len(amount_of_workers)+1)
     y = amount_of_workers
 
@@ -461,29 +478,45 @@ def project_tradion(eaf,kloc,mode,self):
     #ax.set_facecolor('seashell')
     #fig.set_facecolor('floralwhite')
     plt.xlabel('Месяцы')
+    #print(workers_by_time)
     """
-    plt.text(amount_of_workers.count(dif_workers[0])/2, dif_workers[0]+1, dif_workers[0])
-    plt.text(amount_of_workers.count(dif_workers[1])/2+amount_of_workers.count(dif_workers[0]),
-             dif_workers[1]+1,dif_workers[1])
-    plt.text(amount_of_workers.count(dif_workers[2])/2+
-             amount_of_workers.count(dif_workers[0]) +
-             amount_of_workers.count(dif_workers[1]), dif_workers[2]+1, dif_workers[2])
-    plt.text(amount_of_workers.count(dif_workers[3]) / 2 +
-             amount_of_workers.count(dif_workers[0]) +
-             amount_of_workers.count(dif_workers[1]) +
-             amount_of_workers.count(dif_workers[2]), dif_workers[3] + 1, dif_workers[3])
-    plt.text(amount_of_workers.count(dif_workers[4]) / 2 +
-             amount_of_workers.count(dif_workers[0]) +
-             amount_of_workers.count(dif_workers[1]) +
-             amount_of_workers.count(dif_workers[2]) +
-             amount_of_workers.count(dif_workers[3]), dif_workers[4] + 1, dif_workers[3])
+    plt.text(amount_of_workers.count(workers_by_time[0])/2, workers_by_time[0]+1, workers_by_time[0])
+    plt.text(amount_of_workers.count(workers_by_time[1])/2+amount_of_workers.count(workers_by_time[0]),
+             workers_by_time[1]+1,workers_by_time[1])
+    plt.text(amount_of_workers.count(workers_by_time[2])/2+
+             amount_of_workers.count(workers_by_time[0]) +
+             amount_of_workers.count(workers_by_time[1]), workers_by_time[2]+1, workers_by_time[2])
+    plt.text(amount_of_workers.count(workers_by_time[3]) / 2 +
+             amount_of_workers.count(workers_by_time[0]) +
+             amount_of_workers.count(workers_by_time[1]) +
+             amount_of_workers.count(workers_by_time[2]), workers_by_time[3] + 1, dif_workers[3])
+    plt.text(amount_of_workers.count(workers_by_time[4]) / 2 +
+             amount_of_workers.count(workers_by_time[0]) +
+             amount_of_workers.count(workers_by_time[1]) +
+             amount_of_workers.count(workers_by_time[2]) +
+             amount_of_workers.count(workers_by_time[3]), workers_by_time[4] + 1, workers_by_time[3])
     """
     fig.set_figwidth(12)  # ширина Figure
     fig.set_figheight(6)  # высота Figure
     plt.ylabel('Количество сотрудников')
     plt.show()
 
-    
+    salary = get_salary()
+    #print(salary)
+    budget_list = []
+
+    #budget += ((salary['Manager'] + salary['Analytic']) / 2) * workers_by_time * time_plan_requirements
+    budget_list += [(((salary['Manager'] + salary['Analytic']) / 2) * workers_by_time[0] * time_plan_requirements)]
+    budget_list += [(((salary['Programmer'] + salary['Analytic']) / 2) * workers_by_time[1] * time_design_project)]
+    budget_list += [(((salary['Programmer'] + salary['Analytic']) / 2) * workers_by_time[2] * time_details_design)]
+    budget_list += [(((salary['Programmer'] + salary['Tester']) / 2) * workers_by_time[3] * time_code_test)]
+    budget_list += [(((salary['Programmer'] + salary['Tester']) / 2) * workers_by_time[4] * time_integration_test)]
+    print(budget_list)
+    sum_budget = 0
+    for i in range(len(budget_list)):
+        sum_budget += budget_list[i]
+    print(sum_budget)
+    self.ui.budget.setPlainText(str(round(sum_budget)))
 
 
 class mywindow(QMainWindow):
