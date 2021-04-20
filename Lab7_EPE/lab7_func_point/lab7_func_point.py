@@ -251,6 +251,8 @@ class mywindow(QMainWindow):
         result = sum(values)
         #print(result)
         VAF = result * 0.1 + 0.65
+        print(fi_levels)
+        print(VAF)
         result = []
         temp = 0
         temp += self.ui.simple_ei_spinBox.value()
@@ -296,19 +298,19 @@ class mywindow(QMainWindow):
         temp = FunctionPointMethod.Languages[a].loc_per_fp
         loc_temp = temp * VAF * points_sum * perc/100
         loc += loc_temp
-
+        print(loc)
         perc = self.lang_perc_spins[1].value()
         a = self.lang_combos[1].currentIndex()
         temp = FunctionPointMethod.Languages[a].loc_per_fp
         loc_temp = temp * VAF * points_sum * perc / 100
         loc += loc_temp
-
+        print(loc)
         perc = self.lang_perc_spins[2].value()
         a = self.lang_combos[2].currentIndex()
         temp = FunctionPointMethod.Languages[a].loc_per_fp
         loc_temp = temp * VAF * points_sum * perc / 100
         loc += loc_temp
-
+        print(loc)
         self.ui.SLOC_lineEdit.setText(str(round(loc)))
 
         application_2 = MyWindow(round(loc))

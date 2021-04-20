@@ -4,7 +4,7 @@ from PyQt5.QtGui import *
 from PyQt5 import uic
 import sys
 from random import randint
-k = 'hui'
+
 
 # Класс главного окна
 class MyWindow(QMainWindow):
@@ -16,22 +16,22 @@ class MyWindow(QMainWindow):
 
 		# Настройка radiobuttons
 		self.rbPERS2.setChecked(True)
-		self.rbRCPX2.setChecked(True)
-		self.rbRUSE2.setChecked(True)
-		self.rbPDIF2.setChecked(True)
-		self.rbPREX2.setChecked(True)
-		self.rbFCIL2.setChecked(True)
-		self.rbSCED2.setChecked(True)
+		self.rbRCPX4.setChecked(True)
+		self.rbRUSE1.setChecked(True)
+		self.rbPDIF3.setChecked(True)
+		self.rbPREX1.setChecked(True)
+		self.rbFCIL4.setChecked(True)
+		self.rbSCED0.setChecked(True)
 
 		self.rbRUSE0.setEnabled(False)
 		self.rbPDIF0.setEnabled(False)
 		self.rbSCED5.setEnabled(False)
 
 		self.rbPREC2.setChecked(True)
-		self.rbFLEX2.setChecked(True)
-		self.rbRESL2.setChecked(True)
+		self.rbFLEX4.setChecked(True)
+		self.rbRESL1.setChecked(True)
 		self.rbTEAM2.setChecked(True)
-		self.rbPMAT2.setChecked(True)
+		self.rbPMAT1.setChecked(True)
 
 		self.groupPREC = [self.rbPREC0, self.rbPREC1, self.rbPREC2, self.rbPREC3, self.rbPREC4, self.rbPREC5]
 		self.groupFLEX = [self.rbFLEX0, self.rbFLEX1, self.rbFLEX2, self.rbFLEX3, self.rbFLEX4, self.rbFLEX5]
@@ -58,16 +58,17 @@ class MyWindow(QMainWindow):
 			self.label_work.setText(str(round(work, 3)))
 			self.label_time.setText(str(round(time, 3)))
 			self.label_workers.setText(str(round(work / time, 3)))
-			self.label_budget.setText(str(round(work / time * float(self.lineEditSalary.text()), 3)))
+			self.label_budget.setText(str(round(work * float(self.lineEditSalary.text()), 3)))
 
 
 		def button_calculate_2():
+			self.code_lines /= 1000
 			work, time = calculate_cocomo2_model_2(calculate_earch(), self.code_lines, calculate_power())
 			
 			self.label_work_2.setText(str(round(work, 3)))
 			self.label_time_2.setText(str(round(time, 3)))
 			self.label_workers_2.setText(str(round(work / time, 3)))
-			self.label_budget_2.setText(str(round(work / time * float(self.lineEditSalary_2.text()), 3)))
+			self.label_budget_2.setText(str(round(work * float(self.lineEditSalary_2.text()), 3)))
 
 
 		def calculate_cocomo2_model_1(earch, object_points, power):
@@ -139,3 +140,12 @@ class MyWindow(QMainWindow):
 					return i
 			return 2
 
+
+
+
+if __name__ == '__main__':
+	app = QApplication([])
+	application = MyWindow(11097)
+	application.show()
+
+	sys.exit(app.exec())

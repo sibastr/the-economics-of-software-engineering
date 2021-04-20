@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1293</width>
-    <height>769</height>
+    <width>1104</width>
+    <height>622</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>9</x>
       <y>9</y>
-      <width>971</width>
-      <height>261</height>
+      <width>797</width>
+      <height>242</height>
      </rect>
     </property>
     <property name="title">
@@ -553,8 +553,8 @@
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>980</x>
-      <y>30</y>
+      <x>822</x>
+      <y>9</y>
       <width>273</width>
       <height>242</height>
      </rect>
@@ -563,13 +563,6 @@
      <string>Результаты: модель композиции приложения</string>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_27">
-       <property name="text">
-        <string>Бюджет</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_14">
        <property name="text">
@@ -581,6 +574,13 @@
       <widget class="QLabel" name="label_time">
        <property name="text">
         <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_27">
+       <property name="text">
+        <string>Бюджет</string>
        </property>
       </widget>
      </item>
@@ -605,6 +605,13 @@
        </property>
       </widget>
      </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_25">
+       <property name="text">
+        <string>Средняя зарплата</string>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
@@ -612,10 +619,10 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_25">
+     <item row="4" column="1">
+      <widget class="QLabel" name="label_budget">
        <property name="text">
-        <string>Средняя зарплата</string>
+        <string>0</string>
        </property>
       </widget>
      </item>
@@ -633,26 +640,19 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QLabel" name="label_budget">
-       <property name="text">
-        <string>0</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
    <widget class="QTabWidget" name="tabWidgetModels">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>290</y>
-      <width>971</width>
-      <height>351</height>
+      <x>9</x>
+      <y>257</y>
+      <width>807</width>
+      <height>321</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -682,7 +682,7 @@
          <item row="0" column="1">
           <widget class="QLineEdit" name="lineEditReport_0">
            <property name="text">
-            <string>3</string>
+            <string>1</string>
            </property>
           </widget>
          </item>
@@ -703,14 +703,14 @@
          <item row="2" column="1">
           <widget class="QLineEdit" name="lineEditReport_2">
            <property name="text">
-            <string>1</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
           <widget class="QLineEdit" name="lineEditReport_1">
            <property name="text">
-            <string>2</string>
+            <string>1</string>
            </property>
           </widget>
          </item>
@@ -720,7 +720,7 @@
       <item row="3" column="1">
        <widget class="QLineEdit" name="lineEditLanguages">
         <property name="text">
-         <string>2</string>
+         <string>3</string>
         </property>
        </widget>
       </item>
@@ -754,7 +754,7 @@
          <item row="1" column="1">
           <widget class="QLineEdit" name="lineEditForms_1">
            <property name="text">
-            <string>3</string>
+            <string>2</string>
            </property>
           </widget>
          </item>
@@ -768,7 +768,7 @@
          <item row="2" column="1">
           <widget class="QLineEdit" name="lineEditForms_2">
            <property name="text">
-            <string>2</string>
+            <string>0</string>
            </property>
           </widget>
          </item>
@@ -797,6 +797,9 @@
       </item>
       <item row="1" column="1">
        <widget class="QComboBox" name="comboBoxXP">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
         <item>
          <property name="text">
           <string>Очень низкая</string>
@@ -827,7 +830,7 @@
       <item row="0" column="1">
        <widget class="QLineEdit" name="lineEditRUSE">
         <property name="text">
-         <string>20</string>
+         <string>0</string>
         </property>
        </widget>
       </item>
@@ -1530,20 +1533,27 @@
    <widget class="QGroupBox" name="groupBox_5">
     <property name="geometry">
      <rect>
-      <x>980</x>
-      <y>310</y>
+      <x>822</x>
+      <y>257</y>
       <width>273</width>
       <height>242</height>
      </rect>
     </property>
     <property name="title">
-     <string>Результаты: модель ранней разработки</string>
+     <string>Результаты: модель ранней разработки архитектуры</string>
     </property>
     <layout class="QGridLayout" name="gridLayout_5">
      <item row="1" column="0">
       <widget class="QLabel" name="label_15">
        <property name="text">
         <string>Длительность</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_time_2">
+       <property name="text">
+        <string>0</string>
        </property>
       </widget>
      </item>
@@ -1610,13 +1620,6 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="label_time_2">
-       <property name="text">
-        <string>0</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
   </widget>
@@ -1625,8 +1628,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1293</width>
-     <height>26</height>
+     <width>1104</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

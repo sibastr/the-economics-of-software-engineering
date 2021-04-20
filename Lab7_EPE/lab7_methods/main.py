@@ -80,6 +80,7 @@ class MyWindow(QMainWindow):
 
 
 		def calculate_cocomo2_model_2(earch, ksloc, power):
+			ksloc = ksloc/1000
 			work = 2.45 * earch * ksloc ** power
 			time = 3 * work ** (0.33 + 0.2 * (power - 1.01))
 
