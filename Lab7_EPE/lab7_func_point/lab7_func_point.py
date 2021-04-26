@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QMessag
 from prettytable import PrettyTable
 import sys
 from mainwindow import Ui_MainWindow
-from lab7_methods.main import MyWindow
+from main import MyWindow
 class Language:
     def __init__(self, name: str, loc_per_fp: int):
         self.name = name
@@ -249,8 +249,8 @@ class mywindow(QMainWindow):
         fi_levels['Agile'] = self.ui.Agile.value()
         values = fi_levels.values()
         result = sum(values)
-        #print(result)
-        VAF = result * 0.1 + 0.65
+        print(result)
+        VAF = result * 0.01 + 0.65
         print(fi_levels)
         print(VAF)
         result = []
@@ -292,25 +292,31 @@ class mywindow(QMainWindow):
         points_sum = sum(result)
         self.ui.total_label_2.setText(str(points_sum))
         loc = 0
-
+        temp = 0
         perc = self.lang_perc_spins[0].value()
+        print('1 perc',perc)
         a = self.lang_combos[0].currentIndex()
         temp = FunctionPointMethod.Languages[a].loc_per_fp
+        print(temp)
         loc_temp = temp * VAF * points_sum * perc/100
         loc += loc_temp
-        print(loc)
+        #print(loc)
         perc = self.lang_perc_spins[1].value()
+        print('2 perc', perc)
         a = self.lang_combos[1].currentIndex()
         temp = FunctionPointMethod.Languages[a].loc_per_fp
         loc_temp = temp * VAF * points_sum * perc / 100
         loc += loc_temp
-        print(loc)
+        print(temp)
+        #print(loc)
         perc = self.lang_perc_spins[2].value()
         a = self.lang_combos[2].currentIndex()
         temp = FunctionPointMethod.Languages[a].loc_per_fp
         loc_temp = temp * VAF * points_sum * perc / 100
         loc += loc_temp
-        print(loc)
+        #print(loc)
+        print('3 perc', perc)
+        print(temp)
         self.ui.SLOC_lineEdit.setText(str(round(loc)))
 
         application_2 = MyWindow(round(loc))
