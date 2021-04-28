@@ -4,6 +4,7 @@ from PyQt5.QtGui import *
 from PyQt5 import uic
 import sys
 from random import randint
+from cocomo2 import Ui_MainWindow2
 
 
 # Класс главного окна
@@ -12,69 +13,73 @@ class MyWindow(QMainWindow):
 		QWidget.__init__(self)
 
 		# Загрузка интерфейса
-		uic.loadUi("cocomo2.ui", self)
+		#uic.loadUi("cocomo2.ui", self)
+
+		self.ui = Ui_MainWindow2()
+		self.ui.setupUi(self)
 
 		# Настройка radiobuttons
-		self.rbPERS2.setChecked(True)
-		self.rbRCPX4.setChecked(True)
-		self.rbRUSE1.setChecked(True)
-		self.rbPDIF3.setChecked(True)
-		self.rbPREX1.setChecked(True)
-		self.rbFCIL4.setChecked(True)
-		self.rbSCED0.setChecked(True)
+		self.ui.rbPERS2.setChecked(True)
+		self.ui.rbRCPX4.setChecked(True)
+		self.ui.rbRUSE1.setChecked(True)
+		self.ui.rbPDIF3.setChecked(True)
+		self.ui.rbPREX1.setChecked(True)
+		self.ui.rbFCIL4.setChecked(True)
+		self.ui.rbSCED0.setChecked(True)
 
-		self.rbRUSE0.setEnabled(False)
-		self.rbPDIF0.setEnabled(False)
-		self.rbSCED5.setEnabled(False)
+		self.ui.rbRUSE0.setEnabled(False)
+		self.ui.rbPDIF0.setEnabled(False)
+		self.ui.rbSCED5.setEnabled(False)
 
-		self.rbPREC2.setChecked(True)
-		self.rbFLEX4.setChecked(True)
-		self.rbRESL1.setChecked(True)
-		self.rbTEAM2.setChecked(True)
-		self.rbPMAT1.setChecked(True)
+		self.ui.rbPREC2.setChecked(True)
+		self.ui.rbFLEX4.setChecked(True)
+		self.ui.rbRESL1.setChecked(True)
+		self.ui.rbTEAM2.setChecked(True)
+		self.ui.rbPMAT1.setChecked(True)
 
-		self.groupPREC = [self.rbPREC0, self.rbPREC1, self.rbPREC2, self.rbPREC3, self.rbPREC4, self.rbPREC5]
-		self.groupFLEX = [self.rbFLEX0, self.rbFLEX1, self.rbFLEX2, self.rbFLEX3, self.rbFLEX4, self.rbFLEX5]
-		self.groupRESL = [self.rbRESL0, self.rbRESL1, self.rbRESL2, self.rbRESL3, self.rbRESL4, self.rbRESL5]
-		self.groupTEAM = [self.rbTEAM0, self.rbTEAM1, self.rbTEAM2, self.rbTEAM3, self.rbTEAM4, self.rbTEAM5]
-		self.groupPMAT = [self.rbPMAT0, self.rbPMAT1, self.rbPMAT2, self.rbPMAT3, self.rbPMAT4, self.rbPMAT5]
+		self.groupPREC = [self.ui.rbPREC0, self.ui.rbPREC1, self.ui.rbPREC2, self.ui.rbPREC3, self.ui.rbPREC4, self.ui.rbPREC5]
+		self.groupFLEX = [self.ui.rbFLEX0, self.ui.rbFLEX1, self.ui.rbFLEX2, self.ui.rbFLEX3, self.ui.rbFLEX4, self.ui.rbFLEX5]
+		self.groupRESL = [self.ui.rbRESL0, self.ui.rbRESL1, self.ui.rbRESL2, self.ui.rbRESL3, self.ui.rbRESL4, self.ui.rbRESL5]
+		self.groupTEAM = [self.ui.rbTEAM0, self.ui.rbTEAM1, self.ui.rbTEAM2, self.ui.rbTEAM3, self.ui.rbTEAM4, self.ui.rbTEAM5]
+		self.groupPMAT = [self.ui.rbPMAT0, self.ui.rbPMAT1, self.ui.rbPMAT2, self.ui.rbPMAT3, self.ui.rbPMAT4, self.ui.rbPMAT5]
 
-		self.groupPERS = [self.rbPERS0, self.rbPERS1, self.rbPERS2, self.rbPERS3, self.rbPERS4, self.rbPERS5]
-		self.groupRCPX = [self.rbRCPX0, self.rbRCPX1, self.rbRCPX2, self.rbRCPX3, self.rbRCPX4, self.rbRCPX5]
-		self.groupRUSE = [self.rbRUSE0, self.rbRUSE1, self.rbRUSE2, self.rbRUSE3, self.rbRUSE4, self.rbRUSE5]
-		self.groupPDIF = [self.rbPDIF0, self.rbPDIF1, self.rbPDIF2, self.rbPDIF3, self.rbPDIF4, self.rbPDIF5]
-		self.groupPREX = [self.rbPREX0, self.rbPREX1, self.rbPREX2, self.rbPREX3, self.rbPREX4, self.rbPREX5]
-		self.groupFCIL = [self.rbFCIL0, self.rbFCIL1, self.rbFCIL2, self.rbFCIL3, self.rbFCIL4, self.rbFCIL5]
-		self.groupSCED = [self.rbSCED0, self.rbSCED1, self.rbSCED2, self.rbSCED3, self.rbSCED4, self.rbSCED5]
+		self.groupPERS = [self.ui.rbPERS0, self.ui.rbPERS1, self.ui.rbPERS2, self.ui.rbPERS3, self.ui.rbPERS4, self.ui.rbPERS5]
+		self.groupRCPX = [self.ui.rbRCPX0, self.ui.rbRCPX1, self.ui.rbRCPX2, self.ui.rbRCPX3, self.ui.rbRCPX4, self.ui.rbRCPX5]
+		self.groupRUSE = [self.ui.rbRUSE0, self.ui.rbRUSE1, self.ui.rbRUSE2, self.ui.rbRUSE3, self.ui.rbRUSE4, self.ui.rbRUSE5]
+		self.groupPDIF = [self.ui.rbPDIF0, self.ui.rbPDIF1, self.ui.rbPDIF2, self.ui.rbPDIF3, self.ui.rbPDIF4, self.ui.rbPDIF5]
+		self.groupPREX = [self.ui.rbPREX0, self.ui.rbPREX1, self.ui.rbPREX2, self.ui.rbPREX3, self.ui.rbPREX4, self.ui.rbPREX5]
+		self.groupFCIL = [self.ui.rbFCIL0, self.ui.rbFCIL1, self.ui.rbFCIL2, self.ui.rbFCIL3, self.ui.rbFCIL4, self.ui.rbFCIL5]
+		self.groupSCED = [self.ui.rbSCED0, self.ui.rbSCED1, self.ui.rbSCED2, self.ui.rbSCED3, self.ui.rbSCED4, self.ui.rbSCED5]
 
-		self.pushButtonCalculate.clicked.connect(lambda: button_calculate_1())
-		self.pushButtonCalculate_2.clicked.connect(lambda: button_calculate_2())
+		self.ui.pushButtonCalculate.clicked.connect(lambda: button_calculate_1())
+		self.ui.pushButtonCalculate_2.clicked.connect(lambda: button_calculate_2())
 		self.code_lines = code_lines
+		self.ui.lineEditLines.setText(str(code_lines))
 
 
 		def button_calculate_1():
 			work, time = calculate_cocomo2_model_1(calculate_earch(), calculate_object_points(), calculate_power())
 			
-			self.label_work.setText(str(round(work, 3)))
-			self.label_time.setText(str(round(time, 3)))
-			self.label_workers.setText(str(round(work / time, 3)))
-			self.label_budget.setText(str(round(work * float(self.lineEditSalary.text()), 3)))
+			self.ui.label_work.setText(str(round(work, 3)))
+			self.ui.label_time.setText(str(round(time, 3)))
+			self.ui.label_workers.setText(str(round(work / time, 3)))
+			self.ui.label_budget.setText(str(round(work * float(self.ui.lineEditSalary.text()), 3)))
 
 
 		def button_calculate_2():
-			self.code_lines /= 1000
-			work, time = calculate_cocomo2_model_2(calculate_earch(), self.code_lines, calculate_power())
+			lines = int(self.ui.lineEditLines.text()) / 1000
+			work, time = calculate_cocomo2_model_2(calculate_earch(), lines, calculate_power())
 			
-			self.label_work_2.setText(str(round(work, 3)))
-			self.label_time_2.setText(str(round(time, 3)))
-			self.label_workers_2.setText(str(round(work / time, 3)))
-			self.label_budget_2.setText(str(round(work * float(self.lineEditSalary_2.text()), 3)))
+			self.ui.label_work_2.setText(str(round(work, 3)))
+			self.ui.label_time_2.setText(str(round(time, 3)))
+			self.ui.label_workers_2.setText(str(round(work / time, 3)))
+			self.ui.label_budget_2.setText(str(round(work * float(self.ui.lineEditSalary_2.text()), 3)))
 
 
 		def calculate_cocomo2_model_1(earch, object_points, power):
 			prod_table = [4, 7, 13, 25, 50]
-			nop = object_points * (100 - float(self.lineEditRUSE.text())) / 100
-			work = nop / prod_table[self.comboBoxXP.currentIndex()]
+			nop = object_points * (100 - float(self.ui.lineEditRUSE.text())) / 100
+			work = nop / prod_table[self.ui.comboBoxXP.currentIndex()]
 			time = 3 * work ** (0.33 + 0.2 * (power - 1.01))
 
 			return work, time
@@ -88,9 +93,9 @@ class MyWindow(QMainWindow):
 
 
 		def calculate_object_points():
-			forms = int(self.lineEditForms_0.text()) + int(self.lineEditForms_1.text()) * 2 + int(self.lineEditForms_2.text()) * 3
-			reports = int(self.lineEditReport_0.text()) * 2 + int(self.lineEditReport_1.text()) * 5 + int(self.lineEditReport_2.text()) * 8
-			third_gen_language = int(self.lineEditLanguages.text()) * 10
+			forms = int(self.ui.lineEditForms_0.text()) + int(self.ui.lineEditForms_1.text()) * 2 + int(self.ui.lineEditForms_2.text()) * 3
+			reports = int(self.ui.lineEditReport_0.text()) * 2 + int(self.ui.lineEditReport_1.text()) * 5 + int(self.ui.lineEditReport_2.text()) * 8
+			third_gen_language = int(self.ui.lineEditLanguages.text()) * 10
 			return forms + reports + third_gen_language
 
 
@@ -145,7 +150,7 @@ class MyWindow(QMainWindow):
 
 if __name__ == '__main__':
 	app = QApplication([])
-	application = MyWindow(11097)
+	application = MyWindow(2568)
 	application.show()
 
 	sys.exit(app.exec())
